@@ -6,12 +6,7 @@ import * as fs from "fs";
 const db = drizzle(process.env.DATABASE_URL!);
 
 async function main() {
-  const data = JSON.parse(
-    fs.readFileSync(
-      "/mnt/c/Users/ChoYangJin/Desktop/workspace/CSC4020-final-project/output.json",
-      "utf-8"
-    )
-  );
+  const data = JSON.parse(fs.readFileSync("./output.json", "utf-8"));
 
   for (const item of data) {
     const dialogue = {
