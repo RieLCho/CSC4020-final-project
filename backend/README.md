@@ -1,7 +1,3 @@
-# Apply code changes to the database
-
-npx drizzle-kit push
-
 # Local Docker Setup
 
 ```
