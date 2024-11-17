@@ -14,6 +14,7 @@
     "tsx": "^4.19.2"
   },
   "scripts": {
+    "insert-json": "npx tsx src/index.ts",
     "start": "nodemon -e ts --exec \"npx tsx src/api.ts\""
   }
 }

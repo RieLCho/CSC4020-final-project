@@ -30,6 +30,27 @@ DATABASE_URL=postgres://postgres:mypassword@localhost:5432/postgres
 docker start drizzle-postgres
 ```
 
+# Sync Schema in postgres
+
+```
+npx drizzle-kit push
+```
+
+# Put data in to Database (Output.json needed)
+
+```
+pnpm run insert-json
+```
+
+```
+➜  backend git:(main) ✗ pnpm run insert-json
+
+> @ insert-json /Users/yangjin.cho/Desktop/workspace/CSC4020-final-project/backend
+> npx tsx src/index.ts
+
+All dialogues have been inserted into the database!
+```
+
 # How to get inside postgres docker container
 
 ```
