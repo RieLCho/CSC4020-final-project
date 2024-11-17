@@ -1,12 +1,18 @@
 {
-	"dependencies": {
-		"dotenv": "^16.4.5",
-		"drizzle-orm": "^0.36.3",
-		"pg": "^8.13.1"
-	},
-	"devDependencies": {
-		"@types/pg": "^8.11.10",
-		"drizzle-kit": "^0.28.1",
-		"tsx": "^4.19.2"
-	}
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.3",
+    "express": "^4.21.1",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.28.1",
+    "nodemon": "^3.1.7",
+    "tsx": "^4.19.2"
+  },
+  "scripts": {
+    "start": "nodemon -e ts --exec \"npx tsx src/api.ts\""
+  }
 }
