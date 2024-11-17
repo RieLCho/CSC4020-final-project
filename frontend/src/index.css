@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'GyeonggiTitle Light';
+    src: url('/public/fonts/GyeonggiTitle_Light.ttf');
+}
+
+@font-face {
+    font-family: 'GyeonggiTitle Bold';
+    src: url('/public/fonts/GyeonggiTitle_Bold.ttf');
+}
+
+@font-face {
+    font-family: 'GyeonggiTitle Regular';
+    src: url('/public/fonts/GyeonggiTitle_Regular.ttf');
+}
+
+@font-face {
+    font-family: 'GyeonggiTitle Medium';
+    src: url('/public/fonts/GyeonggiTitle_Medium.ttf');
+}
+
+@font-face {
+    font-family: 'GyeonggiBatang Light';
+    src: url('/public/fonts/GyeonggiBatang_Regular.ttf');
+}
+
+@font-face {
+    font-family: 'GyeonggiBatang Bold';
+    src: url('/public/fonts/GyeonggiBatang_Bold.ttf');
+}
