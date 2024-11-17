@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SearchRes } from './types';
 
-const apiUrl = 'placeholder';
+const apiUrl = 'http://localhost:3000';
 
 export const PostBlueArchiveSearch = async (
   query: string,

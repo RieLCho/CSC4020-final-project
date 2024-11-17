@@ -35,3 +35,13 @@ docker start drizzle-postgres
 ```
 sudo docker exec -it drizzle-postgres psql -U postgres
 ```
+
+# Api Test curl
+
+```
+curl -X POST http://localhost:3000/blue_archive/search -H "accept: application/json" -H "content-type: application/json" -d '{
+  "query": "······음?",
+  "page": 1,
+  "size": 9
+}'
+```

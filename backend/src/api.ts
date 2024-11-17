@@ -1,5 +1,6 @@
 import express from "express";
 import { drizzle } from "drizzle-orm/node-postgres";
+import cors from "cors";
 import { Pool } from "pg";
 import { DialogueTable } from "./db/schema";
 import { count, ilike } from "drizzle-orm";
@@ -9,10 +10,15 @@ const port = 3000;
 
 // 데이터베이스 연결
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // .env 파일에서 DATABASE_URL 가져오기
+  connectionString: "postgres://postgres:3942@localhost:5432/postgres", // .env 파일에서 DATABASE_URL 가져오기
+  password: "3942",
+  database: "postgres",
+  host: "localhost",
+  user: "postgres",
 });
 const db = drizzle(pool);
-
+app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173", credentials: false }));
 app.use(express.json());
 
 // API Endpoint: Search dialogues
