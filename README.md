@@ -2,4 +2,4 @@
 
 데이터베이스설계 \_01 기말 프로젝트
 
-![image](https://github.com/user-attachments/assets/17ac4306-37d6-4b05-abd2-b4c813990bc0)
+![제목 없음](https://github.com/user-attachments/assets/47023947-7457-491d-93af-43ac4144cf3a)
