@@ -8,9 +8,11 @@
 
 ```
 nvm use
-pnpm run setup # this script will pull docker, setup docker, download datas, insert data into your docker container.
+pnpm run setup
 pnpm run start
 ```
+
+By running `pnpm run setup`, automatically pull docker, setup postgres docker container, download datas, insert data into your docker container.
 
 ## How to start frontend
 
