@@ -7,6 +7,7 @@ import FrameCard from '../components/FrameCard';
 import SearchBar from '../components/Searchbar';
 import { SearchRes } from '../types';
 import DetailModal from './Detail';
+import NoResult from '../components/NoResult';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -40,6 +41,8 @@ const Home = () => {
     setPage(1); // reset to first page on new search
   };
 
+  const isDataLengthZero = data?.data.length === 0;
+
   return (
     <div className="flex flex-col justify-center gap-y-4 p-4">
       <SearchBar onSearch={handleSearch} initialQuery={initialQuery} />
@@ -54,6 +57,8 @@ const Home = () => {
             <span>Error loading frames.</span>
           </div>
         </div>
+      ) : isDataLengthZero ? (
+        <NoResult />
       ) : (
         <div className="flex flex-col items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
