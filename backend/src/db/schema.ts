@@ -45,3 +45,11 @@ export const SchoolTable = pgTable("school", {
 export const ClubTable = pgTable("club", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
 });
+
+// 이벤트 테이블
+export const EventTable = pgTable("event", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  name: varchar({ length: 255 }).notNull(),
+  openDate: varchar({ length: 255 }),
+  endDate: varchar({ length: 255 }),
+});
