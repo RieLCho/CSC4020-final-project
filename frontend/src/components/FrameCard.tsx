@@ -27,7 +27,9 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{frame.character_name}</h2>
+            <h2 className="card-title">
+              {frame.character_name === '' ? '독백' : frame.character_name}
+            </h2>
             <div className="text-gray-700 line-clamp-3 h-full max-h-9 text-ellipsis w-full">
               {frame.text}
             </div>
