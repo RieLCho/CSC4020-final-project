@@ -16,7 +16,7 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
     <>
       {frames.map((frame) => (
         <div
-          key={frame.uid}
+          key={frame.dialogue_id}
           className="border rounded-md p-4 card card-compact bg-base-100 w-96 shadow-xl"
         >
           <figure>
@@ -38,7 +38,7 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
               <div className="card-actions justify-end pt-4">
                 <button
                   className="btn btn-primary"
-                  onClick={() => handleClick(frame.uid)}
+                  onClick={() => handleClick(frame.dialogue_id)}
                 >
                   자세히
                 </button>

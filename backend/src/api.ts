@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import cors from "cors";
 import { Pool } from "pg";
 import { DialogueTable } from "./db/schema";
-import { count, ilike } from "drizzle-orm";
+import { count, ilike, eq } from "drizzle-orm";
 
 const app = express();
 const port = 3000;
@@ -54,6 +54,27 @@ app.post("/blue_archive/search", async (req, res) => {
     });
   } catch (error) {
     console.error("Error in search API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+app.get("/blue_archive/:uid", async (req: any, res: any) => {
+  const { uid } = req.params;
+
+  try {
+    const dialogue = await db
+      .select()
+      .from(DialogueTable)
+      .where(eq(DialogueTable.dialogue_id, Number(uid)))
+      .limit(1);
+
+    if (dialogue.length === 0) {
+      return res.status(404).json({ message: "Dialogue not found" });
+    }
+
+    res.json(dialogue[0]);
+  } catch (error) {
+    console.error("Error in get dialogue API:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

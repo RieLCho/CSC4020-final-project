@@ -5,7 +5,7 @@ export interface SearchRes {
 }
 
 export interface FrameImageData {
-  uid: string;
+  dialogue_id: string;
   event_name: string;
   character_name: string;
   text: string;
