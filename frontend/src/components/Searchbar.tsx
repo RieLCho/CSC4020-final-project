@@ -28,7 +28,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery }) => {
         className="input input-bordered w-full max-w-xs"
       />
       <button type="submit" className="btn btn-primary">
-        검색
+        <span className="material-icons-round">search</span>
       </button>
     </form>
   );

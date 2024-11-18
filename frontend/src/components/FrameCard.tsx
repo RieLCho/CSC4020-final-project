@@ -17,9 +17,9 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
       {frames.map((frame) => (
         <div
           key={frame.dialogue_id}
-          className="rounded-md p-4 card card-compact bg-neutral-content w-96 shadow-xl"
+          className="rounded-md p-3 card card-compact bg-neutral-content w-96 shadow-xl"
         >
-          <figure>
+          <figure className="p-4">
             <img
               src={frame.url}
               alt="frame"
@@ -35,14 +35,16 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
             </div>
             <div className="flex justify-between">
               <div className="card-actions justify-end pt-4">
-                <button className="btn btn-primary">복사하기</button>
+                <button className="btn btn-primary">
+                  <span className="material-icons">content_copy</span>
+                </button>
               </div>
               <div className="card-actions justify-end pt-4">
                 <button
                   className="btn btn-primary"
                   onClick={() => handleClick(frame.dialogue_id)}
                 >
-                  자세히
+                  <span className="material-icons">arrow_forward_ios</span>
                 </button>
               </div>
             </div>
