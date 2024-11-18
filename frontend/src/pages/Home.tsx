@@ -45,7 +45,7 @@ const Home = () => {
       <SearchBar onSearch={handleSearch} initialQuery={initialQuery} />
       <DetailModal />
       {isLoading ? (
-        <div className="flex justify-center items-center">
+        <div className="h-[90vh] flex justify-center items-center">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       ) : isError ? (
@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <FrameCard frames={data?.data || []} />
           </div>
           <Pagination
