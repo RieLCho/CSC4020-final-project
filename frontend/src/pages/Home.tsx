@@ -44,7 +44,7 @@ const Home = () => {
   const isDataLengthZero = data?.data.length === 0;
 
   return (
-    <div className="flex flex-col justify-center gap-y-4 p-4">
+    <div className="flex flex-col justify-center gap-y-4 p-4 font-gyeonggi-title">
       <SearchBar onSearch={handleSearch} initialQuery={initialQuery} />
       <DetailModal />
       {isLoading ? (
