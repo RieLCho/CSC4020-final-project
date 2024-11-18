@@ -17,7 +17,7 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
       {frames.map((frame) => (
         <div
           key={frame.dialogue_id}
-          className="rounded-md p-3 card card-compact bg-neutral-content w-96 shadow-xl"
+          className="rounded-xl p-3 card card-compact bg-neutral-content w-96 shadow-xl"
         >
           <figure className="p-4">
             <img
@@ -35,7 +35,43 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
             </div>
             <div className="flex justify-between">
               <div className="card-actions justify-end pt-4">
-                <button className="btn btn-primary">
+                <button
+                  className="btn btn-primary"
+                  onClick={async () => {
+                    await fetch(frame.url)
+                      .then((response) => response.blob())
+                      .then((blob) => {
+                        const img = document.createElement('img');
+                        img.src = URL.createObjectURL(blob);
+                        return new Promise((resolve) => {
+                          img.onload = () => {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+                            ctx?.drawImage(img, 0, 0);
+                            canvas.toBlob((pngBlob) => {
+                              if (pngBlob) {
+                                navigator.clipboard
+                                  .write([
+                                    new ClipboardItem({
+                                      'image/png': pngBlob,
+                                    }),
+                                  ])
+                                  .then(() => {
+                                    alert('Image copied to clipboard!');
+                                    resolve(null);
+                                  });
+                              }
+                            }, 'image/png');
+                          };
+                        });
+                      })
+                      .catch((err) => {
+                        console.error('Failed to copy image:', err);
+                      });
+                  }}
+                >
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>

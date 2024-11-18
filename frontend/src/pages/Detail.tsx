@@ -25,6 +25,9 @@ const DetailPage = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <button onClick={handleClose} className="btn">
+        <span className="material-icons">home</span>
+      </button>
       <h3 className="font-bold text-lg">Detail for UID: {uid}</h3>
       <p className="py-4">
         <img
@@ -37,9 +40,6 @@ const DetailPage = () => {
           {`${frame.character_name}: ${frame.text}`}
         </p>
       </p>
-      <button onClick={handleClose} className="btn">
-        홈으로
-      </button>
     </div>
   );
 };
