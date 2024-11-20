@@ -1,10 +1,20 @@
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-      <div>
-        <p>
-          Copyright © 2024 - All rights reserved. This is a fan project and is
-          not affiliated with or endorsed by Nexon or Blue Archive.
+    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+      <div className="grid grid-flow-row gap-4">
+        <div className="flex items-center">
+          <div>
+            <span className="material-icons">school</span>
+          </div>
+          <p className="font-bold">
+            동국대학교 데이터베이스 설계 기말 프로젝트
+          </p>
+        </div>
+        <p className="text-sm opacity-75">
+          Copyright © {new Date().getFullYear()} - All rights reserved.
+          <br />
+          This is a fan project and is not affiliated with or endorsed by Nexon
+          or Blue Archive.
         </p>
       </div>
     </footer>
