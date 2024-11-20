@@ -3,16 +3,20 @@ import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
 export const DialogueTable = pgTable("dialogue", {
   dialogue_id: integer().primaryKey().generatedAlwaysAsIdentity(),
   original_index: integer(),
-  event_name: varchar({ length: 255 }).notNull(),
-  character_name: varchar({ length: 255 }).notNull(),
+  event_name: varchar({ length: 255 })
+    .notNull()
+    .references(() => EventTable.name), // EventTable와 연결
+  character_name: varchar({ length: 255 })
+    .notNull()
+    .references(() => CharacterTable.last_name), // CharacterTable와 연결
   url: varchar({ length: 255 }).notNull(),
   text: varchar({ length: 255 }).notNull(),
-  event_id: integer().references(() => EventTable.id), // EventTable와 연결
 });
 
 export const CharacterTable = pgTable("character", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar({ length: 255 }).notNull(),
+  first_name: varchar({ length: 255 }).notNull(),
+  last_name: varchar({ length: 255 }).notNull(),
   school_id: integer().references(() => SchoolTable.id), // SchoolTable와 연결
   club_id: integer().references(() => ClubTable.id), // ClubTable와 연결
 });
