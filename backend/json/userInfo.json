@@ -1,0 +1,14 @@
+[
+  {
+    "id": "admin",
+    "pw": "1q2w3e4r",
+    "name": "관리자",
+    "email": "john.doe@dongguk.edu"
+  },
+  {
+    "id": "user",
+    "pw": "1q2w3e4r",
+    "name": "사용자",
+    "email": "someone@dongguk.edu"
+  }
+]
