@@ -67,7 +67,7 @@ export const UserTable = pgTable("user", {
   name: varchar({ length: 20 }).notNull(),
   email: varchar({ length: 20 }).notNull(),
 });
-// CREATE TABLE "user" (
+// CREATE TABLE user (
 //   id VARCHAR(20) PRIMARY KEY,
 //   pw VARCHAR(20) NOT NULL,
 //   name VARCHAR(20) NOT NULL,
