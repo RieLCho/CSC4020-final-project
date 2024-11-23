@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Students from './pages/Students';
+import StudentDetail from './pages/StudentDetail';
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
               <Route path="/search" element={<Search />} />
               <Route path="/detail" element={<DetailPage />} />
               <Route path="/students" element={<Students />} />
+              <Route path="/students/detail" element={<StudentDetail />} />
             </Routes>
           </main>
           <Footer />

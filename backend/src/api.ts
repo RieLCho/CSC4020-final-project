@@ -84,6 +84,22 @@ app.get("/students", async (req, res) => {
   }
 });
 
+app.get("/students/detail", async (req, res) => {
+  const { name } = req.query;
+
+  try {
+    const dialogues = await db
+      .select()
+      .from(DialogueTable)
+      .where(eq(DialogueTable.character_name, name as string));
+
+    res.json(dialogues);
+  } catch (error) {
+    console.error("Error fetching student dialogues:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 app.get("/blue_archive/:uid", async (req: any, res: any) => {
   const { uid } = req.params;
 

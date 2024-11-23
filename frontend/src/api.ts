@@ -75,3 +75,22 @@ export const getStudentsList = async () => {
     throw error;
   }
 };
+
+export const getStudentDialogues = async (name: string) => {
+  try {
+    const response = await axios.get(`${apiUrl}/students/detail`, {
+      params: { name },
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in getStudentDialogues:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
