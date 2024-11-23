@@ -65,7 +65,7 @@ const DetailPage = () => {
     if (isLoggedIn && userId && frame?.character_name) {
       try {
         await likeCharacter(frame.character_name, userId);
-        // 좋아요 성공 시 처리
+        setIsCharacterLiked(true); // 상태 업데이트 추가
       } catch (error) {
         console.error('좋아요 실패:', error);
       }
@@ -81,7 +81,7 @@ const DetailPage = () => {
     if (isLoggedIn && userId && frame?.character_name) {
       try {
         await unlikeCharacter(frame.character_name, userId);
-        // 좋아요 성공 시 처리
+        setIsCharacterLiked(false); // 상태 업데이트 추가
       } catch (error) {
         console.error('좋아요 실패:', error);
       }
@@ -97,7 +97,7 @@ const DetailPage = () => {
     if (isLoggedIn && userId && uid) {
       try {
         await likeDialogue(uid, userId);
-        // 좋아요 성공 시 처리
+        setIsDialougeLiked(true); // 상태 업데이트 추가
       } catch (error) {
         console.error('좋아요 실패:', error);
       }
@@ -113,7 +113,7 @@ const DetailPage = () => {
     if (isLoggedIn && userId && uid) {
       try {
         await unlikeDialogue(uid, userId);
-        // 좋아요 성공 시 처리
+        setIsDialougeLiked(false); // 상태 업데이트 추가
       } catch (error) {
         console.error('좋아요 실패:', error);
       }
@@ -140,7 +140,7 @@ const DetailPage = () => {
         </p>
         <p className="text-sm text-gray-500 flex items-center">
           {frame.character_name}
-          {isCharacterLiked ? (
+          {!isCharacterLiked ? (
             <button onClick={handleLikeCharacter} className="ml-2 btn-like">
               좋아요
             </button>
@@ -152,7 +152,7 @@ const DetailPage = () => {
         </p>
         <p className="text-sm text-gray-500 flex items-center">
           {frame.text}
-          {isDialougeLiked ? (
+          {!isDialougeLiked ? (
             <button onClick={handleLikeDialogue} className="ml-2 btn-like">
               좋아요
             </button>
