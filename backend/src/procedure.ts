@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
 
-const favorite_count = async (
+export const favorite_count = async (
   db: NodePgDatabase<Record<string, never>> & {
     $client: Pool;
   }

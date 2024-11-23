@@ -1,5 +1,6 @@
 import "dotenv/config";
-import { drizzle } from "drizzle-orm/node-postgres";
+import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 import {
   DialogueTable,
   SchoolTable,
@@ -9,8 +10,14 @@ import {
   UserTable,
 } from "./db/schema";
 import * as fs from "fs";
-
-const db = drizzle(process.env.DATABASE_URL!);
+import { maskNameTrigger, update_favorite_count } from "./trigger";
+import { favorite_count } from "./procedure";
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+const db: NodePgDatabase & { $client: Pool } = drizzle(
+  pool
+) as NodePgDatabase & { $client: Pool };
 
 async function main() {
   // 학교 데이터 삽입
@@ -79,6 +86,12 @@ async function main() {
     });
   }
   console.log("Users have been inserted!");
+
+  // 트리거 및 프로시저 설정
+  await maskNameTrigger(db);
+  await favorite_count(db);
+  await update_favorite_count(db);
+  console.log("Triggers and procedures have been set!");
 }
 
 main();

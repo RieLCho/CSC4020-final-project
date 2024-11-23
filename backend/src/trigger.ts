@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
 
-const maskNameTrigger = async (
+export const maskNameTrigger = async (
   db: NodePgDatabase<Record<string, never>> & {
     $client: Pool;
   }
@@ -29,7 +29,7 @@ const maskNameTrigger = async (
   );
 };
 
-const update_favorite_count = async (
+export const update_favorite_count = async (
   db: NodePgDatabase<Record<string, never>> & {
     $client: Pool;
   }
