@@ -8,8 +8,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Students from './pages/Students';
 import StudentDetail from './pages/StudentDetail';
-import MyInfo from './pages/MyInfo';
+import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import MyInfo from './pages/MyInfo';
 
 const queryClient = new QueryClient();
 
@@ -26,8 +27,9 @@ const App: React.FC = () => {
               <Route path="/detail" element={<DetailPage />} />
               <Route path="/students" element={<Students />} />
               <Route path="/students/detail" element={<StudentDetail />} />
-              <Route path="/myinfo" element={<MyInfo />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/myinfo" element={<MyInfo />} />
             </Routes>
           </main>
           <Footer />

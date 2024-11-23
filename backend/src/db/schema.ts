@@ -25,6 +25,7 @@ export const CharacterTable = pgTable("character", {
   name: varchar({ length: 255 }).primaryKey(),
   school_id: integer().references(() => SchoolTable.id), // SchoolTable와 연결
   club_id: integer().references(() => ClubTable.id), // ClubTable와 연결
+  favorite_count: integer().default(0),
 });
 // CREATE TABLE character (
 //   name VARCHAR(255) PRIMARY KEY,
