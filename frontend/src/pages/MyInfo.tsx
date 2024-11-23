@@ -66,7 +66,7 @@ const MyInfo = () => {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center font-gyeonggi-title">
       <div className="p-6 max-w-[1430px]">
         <h1 className="text-xl font-bold mb-4">{`${localStorage.getItem('userId')}님의 좋아요 내역`}</h1>
 

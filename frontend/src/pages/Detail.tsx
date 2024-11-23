@@ -31,22 +31,21 @@ const DetailPage = () => {
       getBlueArchiveUid(uid).then((data) => setFrame(data));
     }
     if (localStorage.getItem('isLoggedIn') && localStorage.getItem('userId')) {
-      getLikedCharacters(localStorage.getItem('userId') as string).then(
-        (data) => {
-          if (
-            data.some(
-              (character: any) =>
-                character.character_name === frame?.character_name
-            )
-          ) {
-            setIsCharacterLiked(true);
-          }
-        }
-      );
       getLikedDialogues(localStorage.getItem('userId') as string).then(
         (data) => {
           if (data.some((dialogue: any) => dialogue.uid === uid)) {
             setIsDialougeLiked(true);
+          }
+        }
+      );
+      getLikedCharacters(localStorage.getItem('userId') as string).then(
+        (data) => {
+          if (
+            data.some(
+              (character: any) => character.name === frame?.character_name
+            )
+          ) {
+            setIsCharacterLiked(true);
           }
         }
       );
