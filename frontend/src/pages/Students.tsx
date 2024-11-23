@@ -16,32 +16,46 @@ const Students = () => {
   };
 
   if (isLoading) {
-    return <div>로딩 중...</div>;
+    return (
+      <div className="h-[90vh] flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>오류가 발생했습니��.</div>;
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+          <span>Error loading students.</span>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <table className="table-auto w-full">
-      <thead>
-        <tr>
-          <th>학생 이름</th>
-          <th>학교 이름</th>
-          <th>동아리 이름</th>
-        </tr>
-      </thead>
-      <tbody>
-        {students.map((student: any, index: number) => (
-          <tr key={index} onClick={() => handleRowClick(student.name)}>
-            <td>{student.name}</td>
-            <td>{student.school_name || 'N/A'}</td>
-            <td>{student.club_name || 'N/A'}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="flex justify-center items-center font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra mx-auto">
+          <thead>
+            <tr>
+              <th>학생 이름</th>
+              <th>학교 이름</th>
+              <th>동아리 이름</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((student: any, index: number) => (
+              <tr key={index} onClick={() => handleRowClick(student.name)}>
+                <td>{student.name}</td>
+                <td>{student.school_name || 'N/A'}</td>
+                <td>{student.club_name || 'N/A'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 
