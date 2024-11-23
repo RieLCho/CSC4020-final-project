@@ -11,8 +11,7 @@ import {
   UserCharacterTable,
   UserDialogueTable,
 } from "./db/schema";
-import { count, ilike, eq, and } from "drizzle-orm";
-import { favorite_count } from "./procedure";
+import { count, ilike, eq, and, desc } from "drizzle-orm";
 
 const app = express();
 const port = 3000;
@@ -80,8 +79,8 @@ app.get("/students", async (req, res) => {
       })
       .from(CharacterTable)
       .leftJoin(SchoolTable, eq(CharacterTable.school_id, SchoolTable.id))
-      .leftJoin(ClubTable, eq(CharacterTable.club_id, ClubTable.id));
-
+      .leftJoin(ClubTable, eq(CharacterTable.club_id, ClubTable.id))
+      .orderBy(desc(CharacterTable.favorite_count));
     res.json(data);
   } catch (error) {
     console.error("Error fetching students:", error);
