@@ -54,11 +54,11 @@ const Header = () => {
           <li>
             {localStorage.getItem('isLoggedIn') ? (
               <button onClick={handleLogout} className="btn btn-secondary ml-4">
-                Logout
+                <span className="material-icons">logout</span>
               </button>
             ) : (
               <Link to="/login" className="btn btn-primary ml-4">
-                Login
+                <span className="material-icons">login</span>
               </Link>
             )}
           </li>
