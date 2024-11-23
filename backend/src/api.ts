@@ -7,8 +7,9 @@ import {
   CharacterTable,
   SchoolTable,
   ClubTable,
+  UserTable,
 } from "./db/schema";
-import { count, ilike, eq } from "drizzle-orm";
+import { count, ilike, eq, and } from "drizzle-orm";
 
 const app = express();
 const port = 3000;
@@ -132,6 +133,28 @@ app.get("/blue_archive/:uid", async (req: any, res: any) => {
     res.json(dialogue[0]);
   } catch (error) {
     console.error("Error in get dialogue API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 로그인 API 엔드포인트
+app.post("/login", async (req: any, res: any) => {
+  const { id, pw } = req.body;
+
+  try {
+    const user = await db
+      .select()
+      .from(UserTable)
+      .where(and(eq(UserTable.id, id), eq(UserTable.pw, pw)))
+      .limit(1);
+
+    if (user.length === 0) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    res.json({ name: user[0].name });
+  } catch (error) {
+    console.error("Error in login API:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

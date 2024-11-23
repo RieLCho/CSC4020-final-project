@@ -98,3 +98,13 @@ export const getStudentDialogues = async (
     throw error;
   }
 };
+
+export const postLogin = async (id: string, pw: string) => {
+  try {
+    const response = await axios.post(`${apiUrl}/login`, { id, pw });
+    return response.data;
+  } catch (error: any) {
+    console.error('Error in login:', error.response?.data || error.message);
+    throw error;
+  }
+};
