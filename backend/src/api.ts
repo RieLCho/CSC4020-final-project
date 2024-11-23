@@ -159,6 +159,19 @@ app.post("/login", async (req: any, res: any) => {
   }
 });
 
+// 회원가입 API 엔드포인트
+app.post("/signup", async (req, res) => {
+  const { id, pw, name, email } = req.body;
+
+  try {
+    await db.insert(UserTable).values({ id, pw, name, email });
+    res.status(201).json({ message: "User created successfully" });
+  } catch (error) {
+    console.error("Error in sign up API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`API server is running on http://localhost:${port}`);
 });

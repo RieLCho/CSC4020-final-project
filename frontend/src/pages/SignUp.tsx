@@ -1,34 +1,33 @@
 import { useState } from 'react';
-import { postLogin } from '../api';
+import { postSignUp } from '../api';
 import { useNavigate } from 'react-router-dom';
 
-const MyInfo = () => {
+const SignUp = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleSignUp = async () => {
     setIsLoading(true);
     setMessage('');
     try {
-      const response = await postLogin(id, pw);
-      setMessage(`Welcome, ${response.name}`);
+      await postSignUp(id, pw, name, email);
+      setMessage('Sign up successful');
+      navigate('/login');
     } catch (error) {
-      setMessage('Login failed');
+      setMessage('Sign up failed');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSignUp = () => {
-    navigate('/signup');
-  };
-
   return (
     <div className="flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold mb-6">My Info</h1>
+      <h1 className="text-3xl font-bold mb-6">Sign Up</h1>
       <div className="w-full max-w-xs">
         <input
           type="text"
@@ -44,20 +43,31 @@ const MyInfo = () => {
           onChange={(e) => setPw(e.target.value)}
           className="input input-bordered w-full mb-4"
         />
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="input input-bordered w-full mb-4"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input input-bordered w-full mb-4"
+        />
         <button
-          onClick={handleLogin}
+          onClick={handleSignUp}
           disabled={isLoading}
           className={`btn btn-primary w-full ${isLoading ? 'loading' : ''}`}
         >
-          {isLoading ? 'Loading...' : 'Login'}
+          {isLoading ? 'Loading...' : 'Sign Up'}
         </button>
       </div>
       {message && <p className="mt-4 text-lg text-green-500">{message}</p>}
-      <button onClick={handleSignUp} className="btn btn-secondary w-full mt-4">
-        Sign Up
-      </button>
     </div>
   );
 };
 
-export default MyInfo;
+export default SignUp;

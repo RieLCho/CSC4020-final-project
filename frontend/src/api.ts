@@ -108,3 +108,23 @@ export const postLogin = async (id: string, pw: string) => {
     throw error;
   }
 };
+
+export const postSignUp = async (
+  id: string,
+  pw: string,
+  name: string,
+  email: string
+) => {
+  try {
+    const response = await axios.post(`${apiUrl}/signup`, {
+      id,
+      pw,
+      name,
+      email,
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error('Error in sign up:', error.response?.data || error.message);
+    throw error;
+  }
+};
