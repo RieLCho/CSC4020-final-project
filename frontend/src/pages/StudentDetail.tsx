@@ -40,7 +40,7 @@ const StudentDetail = () => {
   const isDataLengthZero = data?.frames.length === 0;
 
   return (
-    <div className="flex flex-col justify-center gap-y-4 p-4 font-gyeonggi-title">
+    <div className="flex flex-col justify-center items-center gap-y-4 p-4 font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
       {isLoading ? (
         <div className="h-[90vh] flex justify-center items-center">
           <span className="loading loading-spinner loading-lg"></span>
@@ -55,7 +55,9 @@ const StudentDetail = () => {
         <NoResult />
       ) : (
         <>
-          <h1 className="text-3xl font-bold mb-4">{name}의 어록 모음</h1>
+          <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-4">
+            {name}의 어록 모음
+          </h1>
           <div className="max-w-[1430px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
             <FrameCard frames={data?.frames || []} />
           </div>

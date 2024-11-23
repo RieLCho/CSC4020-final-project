@@ -17,7 +17,7 @@ const FrameCard = ({ frames }: FrameDisplayProps) => {
       {frames.map((frame) => (
         <div
           key={frame.dialogue_id}
-          className="rounded-xl p-3 card card-compact bg-neutral-content w-full max-w-md shadow-xl mx-auto my-4"
+          className="rounded-xl p-3 card card-compact bg-neutral-content w-full max-w-md shadow-xl mx-auto my-4 "
         >
           <figure className="p-4">
             <img

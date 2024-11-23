@@ -6,8 +6,13 @@ const Home = () => {
           <h1 className="text-5xl font-bold">JiniArchive</h1>
           <span className="py-6 px-12 whitespace-pre-line">
             {
-              '학생들의 어록을 모아놓은 블루 아카이브 대사 검색 사이트입니다.\n데이터베이스 설계 학습을 위한 학술적인 목적으로 만들어졌습니다.'
+              'Blue Archive의 Archive, JiniArchive\n\n학생들의 어록을 모아놓은 블루 아카이브 대사 검색 사이트입니다.'
             }
+            <p>
+              {
+                '데이터베이스 설계 학습을 위한 학술적인 목적으로 만들어졌습니다.'
+              }
+            </p>
           </span>
         </div>
       </div>
