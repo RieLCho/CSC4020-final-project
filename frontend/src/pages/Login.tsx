@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { postLogin } from '../api';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,6 +26,13 @@ const Login = () => {
     navigate('/signup');
   };
 
+  useEffect(() => {
+    if (message) {
+      alert(message);
+      navigate('/');
+    }
+  }, [message, navigate]);
+
   return (
     <div className="flex flex-col items-center p-6">
       <h1 className="text-3xl font-bold mb-6">My Info</h1>
@@ -44,18 +51,28 @@ const Login = () => {
           onChange={(e) => setPw(e.target.value)}
           className="input input-bordered w-full mb-4"
         />
-        <button
-          onClick={handleLogin}
-          disabled={isLoading}
-          className={`btn btn-primary w-full ${isLoading ? 'loading' : ''}`}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
+          className="w-full"
         >
-          {isLoading ? 'Loading...' : 'Login'}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className={`btn btn-primary w-full ${isLoading ? 'loading' : ''}`}
+          >
+            {isLoading ? 'Loading...' : 'Login'}
+          </button>
+        </form>
+        <button
+          onClick={handleSignUp}
+          className="btn btn-secondary w-full mt-4"
+        >
+          Sign Up
         </button>
       </div>
-      {message && <p className="mt-4 text-lg text-green-500">{message}</p>}
-      <button onClick={handleSignUp} className="btn btn-secondary w-full mt-4">
-        Sign Up
-      </button>
     </div>
   );
 };
