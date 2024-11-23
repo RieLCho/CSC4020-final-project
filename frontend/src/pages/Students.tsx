@@ -35,7 +35,7 @@ const Students = () => {
 
   return (
     <div className="flex justify-center items-center font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
-      <div className="w-[50%]">
+      <div className="sm:w-[50%] md:w-[50%] lg:w-[50%]">
         <table className="table table-zebra mx-auto w-full">
           <thead>
             <tr>
@@ -46,7 +46,11 @@ const Students = () => {
           </thead>
           <tbody>
             {students.map((student: any, index: number) => (
-              <tr key={index} onClick={() => handleRowClick(student.name)}>
+              <tr
+                key={index}
+                onClick={() => handleRowClick(student.name)}
+                className="hover:text-[#b23213]"
+              >
                 <td>{student.name}</td>
                 <td>{student.school_name || 'N/A'}</td>
                 <td>{student.club_name || 'N/A'}</td>
