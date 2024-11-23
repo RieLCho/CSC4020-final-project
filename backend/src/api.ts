@@ -18,8 +18,7 @@ const pool = new Pool({
 });
 const db = drizzle(pool);
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173", credentials: false }));
-app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" }));
 
 // API Endpoint: Search dialogues
 app.post("/blue_archive/search", async (req, res) => {
@@ -45,6 +44,8 @@ app.post("/blue_archive/search", async (req, res) => {
       .execute();
 
     const totalPage = Math.ceil(Number(totalElements[0].count) / size);
+
+    console.log("totalElements:", totalElements);
 
     // 응답
     res.json({
