@@ -128,3 +128,29 @@ export const postSignUp = async (
     throw error;
   }
 };
+
+export const likeCharacter = async (characterName: string, userId: string) => {
+  try {
+    const response = await axios.post(`${apiUrl}/like/character`, {
+      character_name: characterName,
+      userId: userId,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error in likeCharacter:', error);
+    throw error;
+  }
+};
+
+export const likeDialogue = async (dialogueId: string, userId: string) => {
+  try {
+    const response = await axios.post(`${apiUrl}like/dialogue`, {
+      dialogue_id: dialogueId,
+      userId: userId,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error in likeDialogue:', error);
+    throw error;
+  }
+};

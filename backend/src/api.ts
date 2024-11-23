@@ -8,6 +8,8 @@ import {
   SchoolTable,
   ClubTable,
   UserTable,
+  UserCharacterTable,
+  UserDialogueTable,
 } from "./db/schema";
 import { count, ilike, eq, and } from "drizzle-orm";
 import { favorite_count } from "./procedure";
@@ -170,6 +172,36 @@ app.post("/signup", async (req, res) => {
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     console.error("Error in sign up API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 좋아요 API: 캐릭터
+app.post("/like/character", async (req, res) => {
+  const { character_name, userId } = req.body; // 사용자 ID 로직에 맞게 수정
+
+  try {
+    await db
+      .insert(UserCharacterTable)
+      .values({ user_id: userId, character_name });
+    res.status(200).json({ message: "Character liked successfully" });
+  } catch (error) {
+    console.error("Error in like character API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 좋아요 API: 대화
+app.post("/like/dialogue", async (req, res) => {
+  const { dialogue_id, userId } = req.body;
+
+  try {
+    await db
+      .insert(UserDialogueTable)
+      .values({ user_id: userId, dialogue_id: Number(dialogue_id) });
+    res.status(200).json({ message: "Dialogue liked successfully" });
+  } catch (error) {
+    console.error("Error in like dialogue API:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
