@@ -6,6 +6,7 @@ import {
   ClubTable,
   CharacterTable,
   EventTable,
+  UserTable,
 } from "./db/schema";
 import * as fs from "fs";
 
@@ -66,6 +67,18 @@ async function main() {
     });
   }
   console.log("Dialogues have been inserted!");
+
+  // 계정 데이터 삽입
+  const userData = JSON.parse(fs.readFileSync("./json/user.json", "utf-8"));
+  for (const user of userData) {
+    await db.insert(UserTable).values({
+      id: user.id,
+      pw: user.pw,
+      name: user.name,
+      email: user.email,
+    });
+  }
+  console.log("Users have been inserted!");
 }
 
 main();
