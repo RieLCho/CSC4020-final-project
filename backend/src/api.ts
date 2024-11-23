@@ -85,15 +85,30 @@ app.get("/students", async (req, res) => {
 });
 
 app.get("/students/detail", async (req, res) => {
-  const { name } = req.query;
+  const { name, page = 1, size = 9 } = req.query;
 
   try {
+    const offset = (Number(page) - 1) * Number(size);
+
     const dialogues = await db
       .select()
       .from(DialogueTable)
-      .where(eq(DialogueTable.character_name, name as string));
+      .where(eq(DialogueTable.character_name, name as string))
+      .limit(Number(size))
+      .offset(offset);
 
-    res.json(dialogues);
+    const totalElements = await db
+      .select({ count: count() })
+      .from(DialogueTable)
+      .where(eq(DialogueTable.character_name, name as string))
+      .execute();
+
+    const totalPages = Math.ceil(Number(totalElements[0].count) / Number(size));
+
+    res.json({
+      frames: dialogues,
+      totalPages,
+    });
   } catch (error) {
     console.error("Error fetching student dialogues:", error);
     res.status(500).json({ message: "Internal Server Error" });

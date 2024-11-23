@@ -76,10 +76,14 @@ export const getStudentsList = async () => {
   }
 };
 
-export const getStudentDialogues = async (name: string) => {
+export const getStudentDialogues = async (
+  name: string,
+  page: number = 1,
+  size: number = 9
+) => {
   try {
     const response = await axios.get(`${apiUrl}/students/detail`, {
-      params: { name },
+      params: { name, page, size },
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
