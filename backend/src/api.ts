@@ -175,11 +175,27 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// 좋아요 API: 캐릭터
-app.post("/like/character", async (req, res) => {
+// 좋아요 API: 캐릭터 (중복 방지 추가)
+app.post("/like/character", async (req: any, res: any) => {
   const { character_name, userId } = req.body; // 사용자 ID 로직에 맞게 수정
 
   try {
+    // 중복 좋아요 확인
+    const existing = await db
+      .select()
+      .from(UserCharacterTable)
+      .where(
+        and(
+          eq(UserCharacterTable.user_id, userId),
+          eq(UserCharacterTable.character_name, character_name)
+        )
+      )
+      .execute();
+
+    if (existing.length > 0) {
+      return res.status(400).json({ message: "이미 좋아요를 누르셨습니다." });
+    }
+
     await db
       .insert(UserCharacterTable)
       .values({ user_id: userId, character_name });
@@ -190,17 +206,89 @@ app.post("/like/character", async (req, res) => {
   }
 });
 
-// 좋아요 API: 대화
-app.post("/like/dialogue", async (req, res) => {
+// 좋아요 API: 대화 (중복 방지 추가)
+app.post("/like/dialogue", async (req: any, res: any) => {
   const { dialogue_id, userId } = req.body;
 
   try {
+    // 중복 좋아요 확인
+    const existing = await db
+      .select()
+      .from(UserDialogueTable)
+      .where(
+        and(
+          eq(UserDialogueTable.user_id, userId),
+          eq(UserDialogueTable.dialogue_id, Number(dialogue_id))
+        )
+      )
+      .execute();
+
+    if (existing.length > 0) {
+      return res.status(400).json({ message: "이미 좋아요를 누르셨습니다." });
+    }
+
     await db
       .insert(UserDialogueTable)
       .values({ user_id: userId, dialogue_id: Number(dialogue_id) });
     res.status(200).json({ message: "Dialogue liked successfully" });
   } catch (error) {
     console.error("Error in like dialogue API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 좋아요 취소 API: 캐릭터
+app.delete("/unlike/character", async (req: any, res: any) => {
+  const { character_name, userId } = req.body;
+
+  try {
+    const result = await db
+      .delete(UserCharacterTable)
+      .where(
+        and(
+          eq(UserCharacterTable.user_id, userId),
+          eq(UserCharacterTable.character_name, character_name)
+        )
+      )
+      .execute();
+
+    if (result.rowCount === 0) {
+      return res
+        .status(404)
+        .json({ message: "좋아요 기록을 찾을 수 없습니다." });
+    }
+
+    res.status(200).json({ message: "Character unliked successfully" });
+  } catch (error) {
+    console.error("Error in unlike character API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 좋아요 취소 API: 대화
+app.delete("/unlike/dialogue", async (req: any, res: any) => {
+  const { dialogue_id, userId } = req.body;
+
+  try {
+    const result = await db
+      .delete(UserDialogueTable)
+      .where(
+        and(
+          eq(UserDialogueTable.user_id, userId),
+          eq(UserDialogueTable.dialogue_id, Number(dialogue_id))
+        )
+      )
+      .execute();
+
+    if (result.rowCount === 0) {
+      return res
+        .status(404)
+        .json({ message: "좋아요 기록을 찾을 수 없습니다." });
+    }
+
+    res.status(200).json({ message: "Dialogue unliked successfully" });
+  } catch (error) {
+    console.error("Error in unlike dialogue API:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
