@@ -35,8 +35,8 @@ const Students = () => {
 
   return (
     <div className="flex justify-center items-center font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
-      <div className="overflow-x-auto">
-        <table className="table table-zebra mx-auto">
+      <div className="w-[50%]">
+        <table className="table table-zebra mx-auto w-full">
           <thead>
             <tr>
               <th>학생 이름</th>
