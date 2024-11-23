@@ -237,46 +237,97 @@ app.post("/like/dialogue", async (req: any, res: any) => {
   }
 });
 
-// 좋아요 조회 API: 캐릭터
+// 좋아요 조회 API: 캐릭터를 /students와 같은 형식으로 응답
 app.get("/like/character", async (req: any, res: any) => {
-  const { userId } = req.query;
+  const { userId, page = 1, size = 10 } = req.query;
 
   if (!userId) {
     return res.status(400).json({ message: "userId가 필요합니다." });
   }
 
   try {
-    const likedCharacters = await db
-      .select()
+    const offset = (Number(page) - 1) * Number(size);
+
+    const data = await db
+      .select({
+        name: CharacterTable.name,
+        school_name: SchoolTable.name,
+        club_name: ClubTable.name,
+        favorite_count: CharacterTable.favorite_count,
+      })
+      .from(UserCharacterTable)
+      .leftJoin(
+        CharacterTable,
+        eq(UserCharacterTable.character_name, CharacterTable.name)
+      )
+      .leftJoin(SchoolTable, eq(CharacterTable.school_id, SchoolTable.id))
+      .leftJoin(ClubTable, eq(CharacterTable.club_id, ClubTable.id))
+      .where(eq(UserCharacterTable.user_id, userId))
+      .limit(Number(size))
+      .offset(offset)
+      .orderBy(desc(CharacterTable.favorite_count));
+
+    const totalElementsResult = await db
+      .select({ count: count() })
       .from(UserCharacterTable)
       .where(eq(UserCharacterTable.user_id, userId))
       .execute();
-    console.log("likedCharacters:", likedCharacters);
-    res.status(200).json(likedCharacters);
+
+    const totalPages = Math.ceil(
+      Number(totalElementsResult[0].count) / Number(size)
+    );
+
+    res.json({
+      total_page: totalPages,
+      total_elements: totalElementsResult[0].count,
+      data,
+    });
   } catch (error) {
-    console.error("Error fetching liked characters:", error);
+    console.error("Error in get liked characters:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-// 좋아요 조회 API: 대화
+// 좋아요 조회 API: 대화를 /blue_archive/search와 같은 형식으로 응답
 app.get("/like/dialogue", async (req: any, res: any) => {
-  const { userId } = req.query;
+  const { userId, page = 1, size = 9 } = req.query;
 
   if (!userId) {
     return res.status(400).json({ message: "userId가 필요합니다." });
   }
 
   try {
-    const likedDialogues = await db
+    const offset = (Number(page) - 1) * Number(size);
+
+    const dialogues = await db
       .select()
+      .from(UserDialogueTable)
+      .leftJoin(
+        DialogueTable,
+        eq(UserDialogueTable.dialogue_id, DialogueTable.dialogue_id)
+      )
+      .where(eq(UserDialogueTable.user_id, userId))
+      .limit(Number(size))
+      .offset(offset)
+      .orderBy(desc(DialogueTable.dialogue_id));
+
+    const totalElementsResult = await db
+      .select({ count: count() })
       .from(UserDialogueTable)
       .where(eq(UserDialogueTable.user_id, userId))
       .execute();
-    console.log("likedDialogues:", likedDialogues);
-    res.status(200).json(likedDialogues);
+
+    const totalPages = Math.ceil(
+      Number(totalElementsResult[0].count) / Number(size)
+    );
+
+    res.json({
+      total_page: totalPages,
+      total_elements: totalElementsResult[0].count,
+      data: dialogues,
+    });
   } catch (error) {
-    console.error("Error fetching liked dialogues:", error);
+    console.error("Error in get liked dialogues:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

@@ -11,6 +11,11 @@ const MyInfo = () => {
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log('likedStudents:', likedStudents);
+    console.log('likedDialogues:', likedDialogues);
+  }, [likedStudents, likedDialogues]);
+
+  useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const userId = localStorage.getItem('userId');
 

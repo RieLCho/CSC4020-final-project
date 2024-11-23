@@ -164,7 +164,7 @@ export const getLikedCharacters = async (userId: string) => {
         'content-type': 'application/json',
       },
     });
-    return response.data;
+    return response.data.data;
   } catch (error: any) {
     console.error(
       'Error in getLikedCharacters:',
@@ -183,7 +183,7 @@ export const getLikedDialogues = async (userId: string) => {
         'content-type': 'application/json',
       },
     });
-    return response.data;
+    return response.data.data;
   } catch (error: any) {
     console.error(
       'Error in getLikedDialogues:',
