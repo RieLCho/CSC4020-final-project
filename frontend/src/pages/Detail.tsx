@@ -65,7 +65,7 @@ const DetailPage = () => {
     if (isLoggedIn && userId && frame?.character_name) {
       try {
         await likeCharacter(frame.character_name, userId);
-        setIsCharacterLiked(true); // 상태 업데이트 추가
+        setIsCharacterLiked(true); // 상태 업데���트 추가
       } catch (error) {
         console.error('좋아요 실패:', error);
       }
@@ -124,44 +124,58 @@ const DetailPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <button onClick={handleClose} className="btn">
-        <span className="material-icons">home</span>
-      </button>
-      <h3 className="font-bold text-lg">Detail for UID: {uid}</h3>
+    <div className="container mx-auto p-4 font-gyeonggi-title text-2xl">
+      <div className="flex justify-between items-center">
+        <button onClick={handleClose} className="btn">
+          <span className="material-icons">arrow_back_ios</span>
+          <span>이전 페이지</span>
+        </button>
+        <div className="flex items-center">
+          <span>{frame.text}</span>
+          {!isDialougeLiked ? (
+            <button
+              onClick={handleLikeDialogue}
+              className="btn btn-primary ml-2"
+            >
+              <span className="material-icons">thumb_up_off_alt</span>
+            </button>
+          ) : (
+            <button
+              onClick={handleUnlikeDialogue}
+              className="btn btn-secondary ml-2"
+            >
+              <span className="material-icons">thumb_down_off_alt</span>
+            </button>
+          )}
+        </div>
+      </div>
       <p className="py-4">
         <img
           src={frame.url}
           alt="frame"
           className="w-full h-fit object-cover rounded-md mb-2"
         />
-        <p className="text-sm text-gray-500 flex items-center">
-          {frame.event_name}
-        </p>
-        <p className="text-sm text-gray-500 flex items-center">
-          {frame.character_name}
-          {!isCharacterLiked ? (
-            <button onClick={handleLikeCharacter} className="ml-2 btn-like">
-              좋아요
-            </button>
-          ) : (
-            <button onClick={handleUnlikeCharacter} className="ml-2 btn-like">
-              좋아요 취소
-            </button>
-          )}
-        </p>
-        <p className="text-sm text-gray-500 flex items-center">
-          {frame.text}
-          {!isDialougeLiked ? (
-            <button onClick={handleLikeDialogue} className="ml-2 btn-like">
-              좋아요
-            </button>
-          ) : (
-            <button onClick={handleUnlikeDialogue} className="ml-2 btn-like">
-              좋아요 취소
-            </button>
-          )}
-        </p>
+        <div className="text-gray-500 flex flex-col space-y-2 text-2xl">
+          <span>{frame.event_name}</span>
+          <div className="flex items-center">
+            <span>{frame.character_name}</span>
+            {!isCharacterLiked ? (
+              <button
+                onClick={handleLikeCharacter}
+                className="btn btn-primary ml-2"
+              >
+                <span className="material-icons">thumb_up_off_alt</span>
+              </button>
+            ) : (
+              <button
+                onClick={handleUnlikeCharacter}
+                className="btn btn-secondary ml-2"
+              >
+                <span className="material-icons">thumb_down_off_alt</span>
+              </button>
+            )}
+          </div>
+        </div>
       </p>
     </div>
   );
