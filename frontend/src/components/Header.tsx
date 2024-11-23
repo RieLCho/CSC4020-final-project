@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100 shadow-lg">
+    <div className="navbar bg-base-100 shadow-lg font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          BlueArchive Script Finder
+          JiniArchive
         </Link>
       </div>
       <div className="flex-none">
