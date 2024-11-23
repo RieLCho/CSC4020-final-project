@@ -10,6 +10,6 @@ pnpm i
 
 npx drizzle-kit push
 
-curl -L "https://drive.google.com/uc?export=download&id=1dsVORm4xT2WEankShH_I7tUv64ox_Tbd" -o "output.json"
+curl -L "https://drive.google.com/uc?export=download&id=107ZE_yvJK2ZUIVW1js0CXUohS_t6jETc" -o "output.json"
 
 pnpm run insert-json
