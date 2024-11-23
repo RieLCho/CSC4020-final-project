@@ -57,12 +57,15 @@ const Home = () => {
 
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
-              <h2 className="card-title">Clubs</h2>
+              <h2 className="card-title">My Info</h2>
               <span className="whitespace-pre-line h-[96px]">
-                {'학교와 동아리 구성원을 확인해보세요.'}
+                {'내 정보를 확인해보세요.'}
               </span>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">
+                <button
+                  className="btn btn-primary "
+                  onClick={() => (window.location.href = '/myinfo')}
+                >
                   <span className="material-icons ">arrow_forward_ios</span>
                 </button>
               </div>
