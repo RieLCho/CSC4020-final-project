@@ -15,6 +15,8 @@ const Login = () => {
     try {
       const response = await postLogin(id, pw);
       setMessage(`Welcome, ${response.name}`);
+      localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
+      localStorage.setItem('userName', response.name); // 사용자 이름 저장 (선택 사항)
     } catch (error) {
       setMessage('Login failed');
     } finally {

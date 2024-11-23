@@ -1,6 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName');
+    navigate('/login');
+  };
   return (
     <div className="navbar bg-base-100 shadow-lg font-gyeonggi-title text-base sm:text-lg md:text-xl lg:text-2xl">
       <div className="navbar-start">
@@ -46,9 +52,15 @@ const Header = () => {
       <div className="navbar-end">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/login" className="btn btn-primary ml-4">
-              Login
-            </Link>
+            {localStorage.getItem('isLoggedIn') ? (
+              <button onClick={handleLogout} className="btn btn-secondary ml-4">
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="btn btn-primary ml-4">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </div>
