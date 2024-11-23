@@ -57,3 +57,21 @@ export const getBlueArchiveUid = async (uid: string) => {
     throw error;
   }
 };
+
+export const getStudentsList = async () => {
+  try {
+    const response = await axios.get(`${apiUrl}/students`, {
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in getStudentsList:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};

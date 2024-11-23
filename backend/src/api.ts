@@ -2,7 +2,12 @@ import express from "express";
 import { drizzle } from "drizzle-orm/node-postgres";
 import cors from "cors";
 import { Pool } from "pg";
-import { DialogueTable } from "./db/schema";
+import {
+  DialogueTable,
+  CharacterTable,
+  SchoolTable,
+  ClubTable,
+} from "./db/schema";
 import { count, ilike, eq } from "drizzle-orm";
 
 const app = express();
@@ -55,6 +60,26 @@ app.post("/blue_archive/search", async (req, res) => {
     });
   } catch (error) {
     console.error("Error in search API:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 학생 목록 API 엔드포인트
+app.get("/students", async (req, res) => {
+  try {
+    const data = await db
+      .select({
+        name: CharacterTable.name,
+        school_name: SchoolTable.name,
+        club_name: ClubTable.name,
+      })
+      .from(CharacterTable)
+      .leftJoin(SchoolTable, eq(CharacterTable.school_id, SchoolTable.id))
+      .leftJoin(ClubTable, eq(CharacterTable.club_id, ClubTable.id));
+
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching students:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
