@@ -20,25 +20,25 @@ export const CharacterTable = pgTable("character", {
   club_id: integer().references(() => ClubTable.id), // ClubTable와 연결
 });
 
-export const CharacterInfoTable = pgTable("character_info", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  character_id: integer().references(() => CharacterTable.id), // CharacterTable와 연결
-  age: integer(),
-  height: integer(),
-  birthday: varchar({ length: 255 }),
-  hobby: varchar({ length: 255 }),
-  cv: varchar({ length: 255 }),
-  illustrator: varchar({ length: 255 }),
-  note: varchar({ length: 255 }),
-});
+// export const CharacterInfoTable = pgTable("character_info", {
+//   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+//   character_id: integer().references(() => CharacterTable.id), // CharacterTable와 연결
+//   age: integer(),
+//   height: integer(),
+//   birthday: varchar({ length: 255 }),
+//   hobby: varchar({ length: 255 }),
+//   cv: varchar({ length: 255 }),
+//   illustrator: varchar({ length: 255 }),
+//   note: varchar({ length: 255 }),
+// });
 
-export const CharacterStatTable = pgTable("character_stat", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  character_id: integer().references(() => CharacterTable.id), // CharacterTable와 연결
-  attack: integer(),
-  defense: integer(),
-  hp: integer(),
-});
+// export const CharacterStatTable = pgTable("character_stat", {
+//   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+//   character_id: integer().references(() => CharacterTable.id), // CharacterTable와 연결
+//   attack: integer(),
+//   defense: integer(),
+//   hp: integer(),
+// });
 
 export const SchoolTable = pgTable("school", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
