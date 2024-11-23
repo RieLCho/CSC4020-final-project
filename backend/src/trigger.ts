@@ -28,3 +28,19 @@ const maskNameTrigger = async (
     `
   );
 };
+
+const update_favorite_count = async (
+  db: NodePgDatabase<Record<string, never>> & {
+    $client: Pool;
+  }
+) => {
+  await db.execute(
+    `
+    CREATE TRIGGER user_character_favorite_trigger
+AFTER INSERT OR DELETE ON user_character
+FOR EACH ROW
+EXECUTE FUNCTION update_favorite_count();
+
+`
+  );
+};
