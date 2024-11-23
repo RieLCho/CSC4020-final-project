@@ -6,17 +6,16 @@ export const DialogueTable = pgTable("dialogue", {
   event_name: varchar({ length: 255 })
     .notNull()
     .references(() => EventTable.name), // EventTable와 연결
-  character_name: varchar({ length: 255 })
-    .notNull()
-    .references(() => CharacterTable.last_name), // CharacterTable와 연결
+  character_name: varchar({ length: 255 }).references(
+    () => CharacterTable.name
+  ), // CharacterTable와 연결
   url: varchar({ length: 255 }).notNull(),
   text: varchar({ length: 255 }).notNull(),
 });
 
 export const CharacterTable = pgTable("character", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  first_name: varchar({ length: 255 }).notNull(),
-  last_name: varchar({ length: 255 }).notNull(),
+  name: varchar({ length: 255 }).notNull(),
   school_id: integer().references(() => SchoolTable.id), // SchoolTable와 연결
   club_id: integer().references(() => ClubTable.id), // ClubTable와 연결
 });
@@ -49,14 +48,13 @@ export const SchoolTable = pgTable("school", {
 
 export const ClubTable = pgTable("club", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  name: varchar({ length: 255 }).notNull(),
   school_id: integer().references(() => SchoolTable.id), // SchoolTable와 연결
 });
 
 export const EventTable = pgTable("event", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   name: varchar({ length: 255 }).notNull(),
-  openDate: varchar({ length: 255 }),
-  endDate: varchar({ length: 255 }),
 });
 
 export const UserTable = pgTable("user", {

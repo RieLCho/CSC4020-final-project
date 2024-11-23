@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "name": "아비도스 학생회",
+    "school_id": 1
+  },
+  {
+    "id": 2,
+    "name": "대책위원회",
+    "school_id": 1
+  },
+  {
+    "id": 3,
+    "name": "만마전",
+    "school_id": 2
+  },
+  {
+    "id": 4,
+    "name": "정보부",
+    "school_id": 2
+  },
+  {
+    "id": 5,
+    "name": "선도부",
+    "school_id": 2
+  },
+  {
+    "id": 6,
+    "name": "흥신소68",
+    "school_id": 2
+  },
+  {
+    "id": 7,
+    "name": "미식연구회",
+    "school_id": 2
+  },
+  {
+    "id": 8,
+    "name": "급양부",
+    "school_id": 2
+  },
+  {
+    "id": 9,
+    "name": "응급의학부",
+    "school_id": 2
+  },
+  {
+    "id": 10,
+    "name": "온천개발부",
+    "school_id": 2
+  },
+  {
+    "id": 11,
+    "name": "반짝반짝부",
+    "school_id": 2
+  },
+  {
+    "id": 12,
+    "name": "구 학생회",
+    "school_id": 2
+  },
+  {
+    "id": 13,
+    "name": "세미나",
+    "school_id": 3
+  },
+  {
+    "id": 14,
+    "name": "게임개발부",
+    "school_id": 3
+  },
+  {
+    "id": 15,
+    "name": "C&C",
+    "school_id": 3
+  },
+  {
+    "id": 16,
+    "name": "베리타스",
+    "school_id": 3
+  },
+  {
+    "id": 17,
+    "name": "엔지니어부",
+    "school_id": 3
+  },
+  {
+    "id": 18,
+    "name": "트레이닝 클럽",
+    "school_id": 3
+  },
+  {
+    "id": 19,
+    "name": "초현상특무부",
+    "school_id": 3
+  },
+  {
+    "id": 20,
+    "name": "야구부",
+    "school_id": 3
+  },
+  {
+    "id": 21,
+    "name": "티파티",
+    "school_id": 4
+  },
+  {
+    "id": 22,
+    "name": "보충수업부",
+    "school_id": 4
+  },
+  {
+    "id": 23,
+    "name": "자경단",
+    "school_id": 4
+  },
+  {
+    "id": 24,
+    "name": "도서부",
+    "school_id": 4
+  },
+  {
+    "id": 25,
+    "name": "방과후 디저트부",
+    "school_id": 4
+  },
+  {
+    "id": 26,
+    "name": "구호기사단",
+    "school_id": 4
+  },
+  {
+    "id": 27,
+    "name": "정의실현부",
+    "school_id": 4
+  },
+  {
+    "id": 28,
+    "name": "시스터후드",
+    "school_id": 4
+  },
+  {
+    "id": 29,
+    "name": "음양부",
+    "school_id": 5
+  },
+  {
+    "id": 30,
+    "name": "마츠리운영관리부",
+    "school_id": 5
+  },
+  {
+    "id": 31,
+    "name": "수행부",
+    "school_id": 5
+  },
+  {
+    "id": 32,
+    "name": "인법연구부",
+    "school_id": 5
+  },
+  {
+    "id": 33,
+    "name": "백화요란",
+    "school_id": 5
+  },
+  {
+    "id": 34,
+    "name": "화조풍월부",
+    "school_id": 5
+  },
+  {
+    "id": 35,
+    "name": "망량즈",
+    "school_id": 5
+  },
+  {
+    "id": 36,
+    "name": "현룡문",
+    "school_id": 6
+  },
+  {
+    "id": 37,
+    "name": "연단방",
+    "school_id": 6
+  },
+  {
+    "id": 38,
+    "name": "매화원",
+    "school_id": 6
+  },
+  {
+    "id": 39,
+    "name": "현무상회",
+    "school_id": 6
+  },
+  {
+    "id": 40,
+    "name": "경극부",
+    "school_id": 6
+  },
+  {
+    "id": 41,
+    "name": "붉은겨울 사무국",
+    "school_id": 7
+  },
+  {
+    "id": 42,
+    "name": "227호 특별반",
+    "school_id": 7
+  },
+  {
+    "id": 43,
+    "name": "지식해방전선",
+    "school_id": 7
+  },
+  {
+    "id": 44,
+    "name": "용역부",
+    "school_id": 7
+  },
+  {
+    "id": 45,
+    "name": "출판부",
+    "school_id": 7
+  },
+  {
+    "id": 46,
+    "name": "공안국",
+    "school_id": 8
+  },
+  {
+    "id": 47,
+    "name": "생활안전국",
+    "school_id": 8
+  },
+  {
+    "id": 48,
+    "name": "RABBIT 소대",
+    "school_id": 9
+  },
+  {
+    "id": 49,
+    "name": "FOX 소대",
+    "school_id": 9
+  },
+  {
+    "id": 50,
+    "name": "스쿼드",
+    "school_id": 10
+  }
+]

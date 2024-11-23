@@ -1,0 +1,716 @@
+[
+  {
+    "id": 1,
+    "name": "호시노",
+    "school_id": 1,
+    "club_id": 2
+  },
+  {
+    "id": 2,
+    "name": "시로코",
+    "school_id": 1,
+    "club_id": 2
+  },
+  {
+    "id": 3,
+    "name": "노노미",
+    "school_id": 1,
+    "club_id": 2
+  },
+  {
+    "id": 4,
+    "name": "세리카",
+    "school_id": 1,
+    "club_id": 2
+  },
+  {
+    "id": 5,
+    "name": "아야네",
+    "school_id": 1,
+    "club_id": 2
+  },
+  {
+    "id": 6,
+    "name": "유메",
+    "school_id": 1,
+    "club_id": 1
+  },
+  {
+    "id": 7,
+    "name": "마코토",
+    "school_id": 2,
+    "club_id": 3
+  },
+  {
+    "id": 8,
+    "name": "이로하",
+    "school_id": 2,
+    "club_id": 3
+  },
+  {
+    "id": 9,
+    "name": "이부키",
+    "school_id": 2,
+    "club_id": 3
+  },
+  {
+    "id": 10,
+    "name": "사츠키",
+    "school_id": 2,
+    "club_id": 4
+  },
+  {
+    "id": 11,
+    "name": "치아키",
+    "school_id": 2,
+    "club_id": 3
+  },
+  {
+    "id": 12,
+    "name": "히나",
+    "school_id": 2,
+    "club_id": 5
+  },
+  {
+    "id": 13,
+    "name": "아코",
+    "school_id": 2,
+    "club_id": 5
+  },
+  {
+    "id": 14,
+    "name": "이오리",
+    "school_id": 2,
+    "club_id": 5
+  },
+  {
+    "id": 15,
+    "name": "치나츠",
+    "school_id": 2,
+    "club_id": 5
+  },
+  {
+    "id": 16,
+    "name": "아루",
+    "school_id": 2,
+    "club_id": 6
+  },
+  {
+    "id": 17,
+    "name": "무츠키",
+    "school_id": 2,
+    "club_id": 6
+  },
+  {
+    "id": 18,
+    "name": "카요코",
+    "school_id": 2,
+    "club_id": 6
+  },
+  {
+    "id": 19,
+    "name": "하루카",
+    "school_id": 2,
+    "club_id": 6
+  },
+  {
+    "id": 20,
+    "name": "하루나",
+    "school_id": 2,
+    "club_id": 7
+  },
+  {
+    "id": 21,
+    "name": "아카리",
+    "school_id": 2,
+    "club_id": 7
+  },
+  {
+    "id": 22,
+    "name": "이즈미",
+    "school_id": 2,
+    "club_id": 7
+  },
+  {
+    "id": 23,
+    "name": "준코",
+    "school_id": 2,
+    "club_id": 7
+  },
+  {
+    "id": 24,
+    "name": "후우카",
+    "school_id": 2,
+    "club_id": 8
+  },
+  {
+    "id": 25,
+    "name": "주리",
+    "school_id": 2,
+    "club_id": 8
+  },
+  {
+    "id": 26,
+    "name": "세나",
+    "school_id": 2,
+    "club_id": 9
+  },
+  {
+    "id": 27,
+    "name": "카스미",
+    "school_id": 2,
+    "club_id": 10
+  },
+  {
+    "id": 28,
+    "name": "메구",
+    "school_id": 2,
+    "club_id": 10
+  },
+  {
+    "id": 29,
+    "name": "에리카",
+    "school_id": 2,
+    "club_id": 11
+  },
+  {
+    "id": 30,
+    "name": "키라라",
+    "school_id": 2,
+    "club_id": 11
+  },
+  {
+    "id": 31,
+    "name": "뇌제",
+    "school_id": 2,
+    "club_id": 12
+  },
+  {
+    "id": 32,
+    "name": "리오",
+    "school_id": 3,
+    "club_id": 13
+  },
+  {
+    "id": 33,
+    "name": "노아",
+    "school_id": 3,
+    "club_id": 13
+  },
+  {
+    "id": 34,
+    "name": "유우카",
+    "school_id": 3,
+    "club_id": 13
+  },
+  {
+    "id": 35,
+    "name": "코유키",
+    "school_id": 3,
+    "club_id": 13
+  },
+  {
+    "id": 36,
+    "name": "유즈",
+    "school_id": 3,
+    "club_id": 14
+  },
+  {
+    "id": 37,
+    "name": "모모이",
+    "school_id": 3,
+    "club_id": 14
+  },
+  {
+    "id": 38,
+    "name": "미도리",
+    "school_id": 3,
+    "club_id": 14
+  },
+  {
+    "id": 39,
+    "name": "아리스",
+    "school_id": 3,
+    "club_id": 14
+  },
+  {
+    "id": 40,
+    "name": "���루",
+    "school_id": 3,
+    "club_id": 15
+  },
+  {
+    "id": 41,
+    "name": "아스나",
+    "school_id": 3,
+    "club_id": 15
+  },
+  {
+    "id": 42,
+    "name": "카린",
+    "school_id": 3,
+    "club_id": 15
+  },
+  {
+    "id": 43,
+    "name": "아카네",
+    "school_id": 3,
+    "club_id": 15
+  },
+  {
+    "id": 44,
+    "name": "토키",
+    "school_id": 3,
+    "club_id": 15
+  },
+  {
+    "id": 45,
+    "name": "히마리",
+    "school_id": 3,
+    "club_id": 16
+  },
+  {
+    "id": 46,
+    "name": "치히로",
+    "school_id": 3,
+    "club_id": 16
+  },
+  {
+    "id": 47,
+    "name": "코타마",
+    "school_id": 3,
+    "club_id": 16
+  },
+  {
+    "id": 48,
+    "name": "하레",
+    "school_id": 3,
+    "club_id": 16
+  },
+  {
+    "id": 49,
+    "name": "마키",
+    "school_id": 3,
+    "club_id": 16
+  },
+  {
+    "id": 50,
+    "name": "우타하",
+    "school_id": 3,
+    "club_id": 17
+  },
+  {
+    "id": 51,
+    "name": "히비키",
+    "school_id": 3,
+    "club_id": 17
+  },
+  {
+    "id": 52,
+    "name": "코토리",
+    "school_id": 3,
+    "club_id": 17
+  },
+  {
+    "id": 53,
+    "name": "스미레",
+    "school_id": 3,
+    "club_id": 18
+  },
+  {
+    "id": 54,
+    "name": "히마리",
+    "school_id": 3,
+    "club_id": 19
+  },
+  {
+    "id": 55,
+    "name": "에이미",
+    "school_id": 3,
+    "club_id": 19
+  },
+  {
+    "id": 56,
+    "name": "레이",
+    "school_id": 3,
+    "club_id": 20
+  },
+  {
+    "id": 57,
+    "name": "나기사",
+    "school_id": 4,
+    "club_id": 21
+  },
+  {
+    "id": 58,
+    "name": "미카",
+    "school_id": 4,
+    "club_id": 21
+  },
+  {
+    "id": 59,
+    "name": "세이아",
+    "school_id": 4,
+    "club_id": 21
+  },
+  {
+    "id": 60,
+    "name": "히후미",
+    "school_id": 4,
+    "club_id": 22
+  },
+  {
+    "id": 61,
+    "name": "하나코",
+    "school_id": 4,
+    "club_id": 22
+  },
+  {
+    "id": 62,
+    "name": "아즈사",
+    "school_id": 4,
+    "club_id": 22
+  },
+  {
+    "id": 63,
+    "name": "코하루",
+    "school_id": 4,
+    "club_id": 22
+  },
+  {
+    "id": 64,
+    "name": "스즈미",
+    "school_id": 4,
+    "club_id": 23
+  },
+  {
+    "id": 65,
+    "name": "레이사",
+    "school_id": 4,
+    "club_id": 23
+  },
+  {
+    "id": 66,
+    "name": "우이",
+    "school_id": 4,
+    "club_id": 24
+  },
+  {
+    "id": 67,
+    "name": "시미코",
+    "school_id": 4,
+    "club_id": 24
+  },
+  {
+    "id": 68,
+    "name": "아이리",
+    "school_id": 4,
+    "club_id": 25
+  },
+  {
+    "id": 69,
+    "name": "카즈사",
+    "school_id": 4,
+    "club_id": 25
+  },
+  {
+    "id": 70,
+    "name": "요시미",
+    "school_id": 4,
+    "club_id": 25
+  },
+  {
+    "id": 71,
+    "name": "나츠",
+    "school_id": 4,
+    "club_id": 25
+  },
+  {
+    "id": 72,
+    "name": "미네",
+    "school_id": 4,
+    "club_id": 26
+  },
+  {
+    "id": 73,
+    "name": "세리나",
+    "school_id": 4,
+    "club_id": 26
+  },
+  {
+    "id": 74,
+    "name": "하루에",
+    "school_id": 4,
+    "club_id": 26
+  },
+  {
+    "id": 75,
+    "name": "츠루기",
+    "school_id": 4,
+    "club_id": 27
+  },
+  {
+    "id": 76,
+    "name": "하스미",
+    "school_id": 4,
+    "club_id": 27
+  },
+  {
+    "id": 77,
+    "name": "이치카",
+    "school_id": 4,
+    "club_id": 27
+  },
+  {
+    "id": 78,
+    "name": "마시로",
+    "school_id": 4,
+    "club_id": 27
+  },
+  {
+    "id": 79,
+    "name": "사쿠라코",
+    "school_id": 4,
+    "club_id": 28
+  },
+  {
+    "id": 80,
+    "name": "히나타",
+    "school_id": 4,
+    "club_id": 28
+  },
+  {
+    "id": 81,
+    "name": "마리",
+    "school_id": 4,
+    "club_id": 28
+  },
+  {
+    "id": 82,
+    "name": "키사키",
+    "school_id": 6,
+    "club_id": 36
+  },
+  {
+    "id": 83,
+    "name": "미나",
+    "school_id": 6,
+    "club_id": 36
+  },
+  {
+    "id": 84,
+    "name": "사야",
+    "school_id": 6,
+    "club_id": 37
+  },
+  {
+    "id": 85,
+    "name": "킨",
+    "school_id": 6,
+    "club_id": 37
+  },
+  {
+    "id": 86,
+    "name": "메이",
+    "school_id": 6,
+    "club_id": 37
+  },
+  {
+    "id": 87,
+    "name": "슌",
+    "school_id": 6,
+    "club_id": 38
+  },
+  {
+    "id": 88,
+    "name": "코코나",
+    "school_id": 6,
+    "club_id": 38
+  },
+  {
+    "id": 89,
+    "name": "루미",
+    "school_id": 6,
+    "club_id": 39
+  },
+  {
+    "id": 90,
+    "name": "레이죠",
+    "school_id": 6,
+    "club_id": 39
+  },
+  {
+    "id": 91,
+    "name": "카구야",
+    "school_id": 6,
+    "club_id": 40
+  },
+  {
+    "id": 92,
+    "name": "페이",
+    "school_id": 6,
+    "club_id": null
+  },
+  {
+    "id": 93,
+    "name": "카이",
+    "school_id": 6,
+    "club_id": null
+  },
+  {
+    "id": 94,
+    "name": "체리노",
+    "school_id": 7,
+    "club_id": 41
+  },
+  {
+    "id": 95,
+    "name": "토모에",
+    "school_id": 7,
+    "club_id": 41
+  },
+  {
+    "id": 96,
+    "name": "마리나",
+    "school_id": 7,
+    "club_id": 41
+  },
+  {
+    "id": 97,
+    "name": "노도카",
+    "school_id": 7,
+    "club_id": 42
+  },
+  {
+    "id": 98,
+    "name": "시구레",
+    "school_id": 7,
+    "club_id": 42
+  },
+  {
+    "id": 99,
+    "name": "메루",
+    "school_id": 7,
+    "club_id": 43
+  },
+  {
+    "id": 100,
+    "name": "모미지",
+    "school_id": 7,
+    "club_id": 43
+  },
+  {
+    "id": 101,
+    "name": "미노리",
+    "school_id": 7,
+    "club_id": 44
+  },
+  {
+    "id": 102,
+    "name": "야쿠모",
+    "school_id": 7,
+    "club_id": 45
+  },
+  {
+    "id": 103,
+    "name": "타카네",
+    "school_id": 7,
+    "club_id": 45
+  },
+  {
+    "id": 104,
+    "name": "칸나",
+    "school_id": 8,
+    "club_id": 46
+  },
+  {
+    "id": 105,
+    "name": "코노카",
+    "school_id": 8,
+    "club_id": 46
+  },
+  {
+    "id": 106,
+    "name": "키리노",
+    "school_id": 8,
+    "club_id": 47
+  },
+  {
+    "id": 107,
+    "name": "후부키",
+    "school_id": 8,
+    "club_id": 47
+  },
+  {
+    "id": 108,
+    "name": "미야코",
+    "school_id": 9,
+    "club_id": 48
+  },
+  {
+    "id": 109,
+    "name": "사키",
+    "school_id": 9,
+    "club_id": 48
+  },
+  {
+    "id": 110,
+    "name": "모에",
+    "school_id": 9,
+    "club_id": 48
+  },
+  {
+    "id": 111,
+    "name": "미유",
+    "school_id": 9,
+    "club_id": 48
+  },
+  {
+    "id": 112,
+    "name": "유키노",
+    "school_id": 9,
+    "club_id": 49
+  },
+  {
+    "id": 113,
+    "name": "니코",
+    "school_id": 9,
+    "club_id": 49
+  },
+  {
+    "id": 114,
+    "name": "쿠루미",
+    "school_id": 9,
+    "club_id": 49
+  },
+  {
+    "id": 115,
+    "name": "오토기",
+    "school_id": 9,
+    "club_id": 49
+  },
+  {
+    "id": 116,
+    "name": "사오리",
+    "school_id": 10,
+    "club_id": 50
+  },
+  {
+    "id": 117,
+    "name": "미사키",
+    "school_id": 10,
+    "club_id": 50
+  },
+  {
+    "id": 118,
+    "name": "히요리",
+    "school_id": 10,
+    "club_id": 50
+  },
+  {
+    "id": 119,
+    "name": "아츠코",
+    "school_id": 10,
+    "club_id": 50
+  }
+]
