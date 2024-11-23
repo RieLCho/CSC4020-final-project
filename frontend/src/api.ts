@@ -144,13 +144,92 @@ export const likeCharacter = async (characterName: string, userId: string) => {
 
 export const likeDialogue = async (dialogueId: string, userId: string) => {
   try {
-    const response = await axios.post(`${apiUrl}like/dialogue`, {
+    const response = await axios.post(`${apiUrl}/like/dialogue`, {
       dialogue_id: dialogueId,
       userId: userId,
     });
     return response.data;
   } catch (error) {
     console.error('Error in likeDialogue:', error);
+    throw error;
+  }
+};
+
+export const getLikedCharacters = async (userId: string) => {
+  try {
+    const response = await axios.get(`${apiUrl}/like/character`, {
+      params: { userId },
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in getLikedCharacters:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const getLikedDialogues = async (userId: string) => {
+  try {
+    const response = await axios.get(`${apiUrl}/like/dialogue`, {
+      params: { userId },
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in getLikedDialogues:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const unlikeCharacter = async (
+  characterName: string,
+  userId: string
+) => {
+  try {
+    const response = await axios.delete(`${apiUrl}/unlike/character`, {
+      data: { character_name: characterName, userId },
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in unlikeCharacter:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const unlikeDialogue = async (dialogueId: string, userId: string) => {
+  try {
+    const response = await axios.delete(`${apiUrl}/unlike/dialogue`, {
+      data: { dialogue_id: dialogueId, userId },
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      'Error in unlikeDialogue:',
+      error.response?.data || error.message
+    );
     throw error;
   }
 };

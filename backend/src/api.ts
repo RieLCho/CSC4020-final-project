@@ -237,6 +237,50 @@ app.post("/like/dialogue", async (req: any, res: any) => {
   }
 });
 
+// 좋아요 조회 API: 캐릭터
+app.get("/like/character", async (req: any, res: any) => {
+  const { userId } = req.query;
+
+  if (!userId) {
+    return res.status(400).json({ message: "userId가 필요합니다." });
+  }
+
+  try {
+    const likedCharacters = await db
+      .select()
+      .from(UserCharacterTable)
+      .where(eq(UserCharacterTable.user_id, userId))
+      .execute();
+    console.log("likedCharacters:", likedCharacters);
+    res.status(200).json(likedCharacters);
+  } catch (error) {
+    console.error("Error fetching liked characters:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+// 좋아요 조회 API: 대화
+app.get("/like/dialogue", async (req: any, res: any) => {
+  const { userId } = req.query;
+
+  if (!userId) {
+    return res.status(400).json({ message: "userId가 필요합니다." });
+  }
+
+  try {
+    const likedDialogues = await db
+      .select()
+      .from(UserDialogueTable)
+      .where(eq(UserDialogueTable.user_id, userId))
+      .execute();
+    console.log("likedDialogues:", likedDialogues);
+    res.status(200).json(likedDialogues);
+  } catch (error) {
+    console.error("Error fetching liked dialogues:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 // 좋아요 취소 API: 캐릭터
 app.delete("/unlike/character", async (req: any, res: any) => {
   const { character_name, userId } = req.body;
@@ -252,6 +296,7 @@ app.delete("/unlike/character", async (req: any, res: any) => {
       )
       .execute();
 
+    console.log("result:", result);
     if (result.rowCount === 0) {
       return res
         .status(404)
@@ -279,6 +324,7 @@ app.delete("/unlike/dialogue", async (req: any, res: any) => {
         )
       )
       .execute();
+    console.log("result:", result);
 
     if (result.rowCount === 0) {
       return res
