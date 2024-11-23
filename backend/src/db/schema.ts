@@ -42,14 +42,22 @@ export const UserTable = pgTable("user", {
   email: varchar({ length: 20 }).notNull(),
 });
 
-export const UserDetailTable = pgTable("user_detail", {
-  userId: varchar({ length: 20 })
-    .primaryKey()
-    .references(() => UserTable.id), // UserTable와 연결
-  favDialouges: integer()
-    .array()
-    .references(() => DialogueTable.dialogue_id), // DialogueTable와 연결
-  favCharacters: varchar()
-    .array()
-    .references(() => CharacterTable.name), // CharacterTable와 연결
+// 중간 테이블 사용 (Many-to-Many 관계)
+export const UserDialogueTable = pgTable("user_dialogue", {
+  user_id: varchar({ length: 20 })
+    .notNull()
+    .references(() => UserTable.id),
+  dialogue_id: integer()
+    .notNull()
+    .references(() => DialogueTable.dialogue_id),
+});
+
+// 중간 테이블 사용 (Many-to-Many 관계)
+export const UserCharacterTable = pgTable("user_character", {
+  user_id: varchar({ length: 20 })
+    .notNull()
+    .references(() => UserTable.id),
+  character_name: varchar()
+    .notNull()
+    .references(() => CharacterTable.name),
 });

@@ -69,7 +69,7 @@ async function main() {
   console.log("Dialogues have been inserted!");
 
   // 계정 데이터 삽입
-  const userData = JSON.parse(fs.readFileSync("./json/user.json", "utf-8"));
+  const userData = JSON.parse(fs.readFileSync("./json/userInfo.json", "utf-8"));
   for (const user of userData) {
     await db.insert(UserTable).values({
       id: user.id,
