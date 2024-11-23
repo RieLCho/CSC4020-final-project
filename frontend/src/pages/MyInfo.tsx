@@ -31,7 +31,7 @@ const MyInfo = () => {
           getLikedDialogues(userId),
         ]);
         setLikedStudents(characters);
-        setLikedDialogues(dialogues);
+        setLikedDialogues(dialogues.map((item: any) => item.dialogue));
         setIsLoading(false);
       } catch (error) {
         console.error('데이터 가져오기 실패:', error);
