@@ -42,6 +42,7 @@ const Students = () => {
               <th>학생 이름</th>
               <th>학교 이름</th>
               <th>동아리 이름</th>
+              <th>좋아요 수</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +55,7 @@ const Students = () => {
                 <td>{student.name}</td>
                 <td>{student.school_name || 'N/A'}</td>
                 <td>{student.club_name || 'N/A'}</td>
+                <td>{student.favorite_count}</td>
               </tr>
             ))}
           </tbody>

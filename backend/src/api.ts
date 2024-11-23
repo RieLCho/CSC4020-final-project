@@ -10,6 +10,7 @@ import {
   UserTable,
 } from "./db/schema";
 import { count, ilike, eq, and } from "drizzle-orm";
+import { favorite_count } from "./procedure";
 
 const app = express();
 const port = 3000;
@@ -73,6 +74,7 @@ app.get("/students", async (req, res) => {
         name: CharacterTable.name,
         school_name: SchoolTable.name,
         club_name: ClubTable.name,
+        favorite_count: CharacterTable.favorite_count,
       })
       .from(CharacterTable)
       .leftJoin(SchoolTable, eq(CharacterTable.school_id, SchoolTable.id))
