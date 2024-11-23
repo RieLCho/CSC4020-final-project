@@ -70,7 +70,7 @@ const MyInfo = () => {
       <div className="p-6 max-w-[1430px]">
         <h1 className="text-xl font-bold mb-4">{`${localStorage.getItem('userId')}님의 좋아요 내역`}</h1>
 
-        <h2 className="text-lg font-semibold mb-2">좋아하는 학생들</h2>
+        <h2 className="text-lg font-semibold mb-2">좋아하는 캐릭터들</h2>
         {likedStudents.length > 0 ? (
           <table className="table table-zebra w-full mb-4">
             <thead>
@@ -100,13 +100,13 @@ const MyInfo = () => {
           <p>좋아하는 캐릭터가 없습니다.</p>
         )}
 
-        <h2 className="text-lg font-semibold mb-2">좋아하는 대화들</h2>
+        <h2 className="text-lg font-semibold mb-2">좋아하는 대사들</h2>
         {likedDialogues.length > 0 ? (
           <div className="max-w-[1430px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
             <FrameCard frames={likedDialogues} />
           </div>
         ) : (
-          <p>좋아하는 장면이 없습니다.</p>
+          <p>좋아하는 대사가 없습니다.</p>
         )}
       </div>
     </div>
