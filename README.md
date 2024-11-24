@@ -11,6 +11,7 @@
 
 <img width="766" alt="Screenshot 2024-11-24 at 11 28 56 AM" src="https://github.com/user-attachments/assets/63a61d0f-0fdb-40e5-a1cd-97617e4d1b81">
 
+*도커가 켜져 있는 상태에서*
 ```
 cd backend
 nvm use
