@@ -16,6 +16,7 @@
     "tsx": "^4.19.2"
   },
   "scripts": {
+    "setup-example": "cp example.json output.json && pnpm setup-dev",
     "setup": "sh init.sh",
     "setup-dev": "sudo docker rm -f drizzle-postgres && sudo docker run --name drizzle-postgres -e POSTGRES_PASSWORD=3942 -d -p 5432:5432 postgres && npx drizzle-kit push && pnpm insert-json",
     "insert-json": "npx tsx src/index.ts",
