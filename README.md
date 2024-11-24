@@ -9,14 +9,19 @@
 
 ## How to start backend
 
+<img width="766" alt="Screenshot 2024-11-24 at 11 28 56 AM" src="https://github.com/user-attachments/assets/63a61d0f-0fdb-40e5-a1cd-97617e4d1b81">
+
 ```
 cd backend
 nvm use
 pnpm run setup
 pnpm run start
 ```
+설치 영상: https://youtu.be/kU7BJRSSR18
 
 By running `pnpm run setup`, automatically pull docker, setup postgres docker container, download datas, insert data into your docker container.
+
+이후에 데이터 초기화 할 땐 `pnpm run setup-dev`
 
 ## How to start frontend
 
