@@ -7,22 +7,39 @@
 ![image](https://github.com/user-attachments/assets/6700e675-d7c9-444f-a003-a79996421e60)  
 ![image](https://github.com/user-attachments/assets/1e493d7c-9d0c-4586-9fe4-f722e9b7f398)
 
+## 구동 전에 설치해야 하는 것
+
+node.js
+pnpm
+docker
+nvm (node.js 20.18 사용 시 스킵 가능)
+
 ## How to start backend
+
+1. output.json이 없는 경우 (git clone 시)
 
 <img width="766" alt="Screenshot 2024-11-24 at 11 28 56 AM" src="https://github.com/user-attachments/assets/63a61d0f-0fdb-40e5-a1cd-97617e4d1b81">
 
-*도커가 켜져 있는 상태에서*
+_도커가 켜져 있는 상태에서_
+
 ```
 cd backend
 nvm use
 pnpm run setup
 pnpm run start
 ```
+
 설치 영상: https://youtu.be/kU7BJRSSR18
 
 By running `pnpm run setup`, automatically pull docker, setup postgres docker container, download datas, insert data into your docker container.
 
-이후에 데이터 초기화 할 땐 `pnpm run setup-dev`
+2. output.json이 있는 경우 (eclass에 압축된 파일로 실행 시)
+
+_도커가 켜져 있는 상태에서_
+
+```
+pnpm run setup-dev
+```
 
 ## How to start frontend
 
