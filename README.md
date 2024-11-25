@@ -9,10 +9,10 @@
 
 ## 구동 전에 설치해야 하는 것
 
-node.js
-pnpm
-docker
-nvm (node.js 20.18 사용 시 스킵 가능)
+![node.js](https://nodejs.org/en/download/package-manager)
+![pnpm](https://pnpm.io/installation)
+![docker](https://docs.docker.com/engine/install/ubuntu/)
+![nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script) (node.js 20.18 사용 시 스킵 가능)
 
 ## How to start backend
 
@@ -29,6 +29,8 @@ pnpm run setup
 pnpm run start
 ```
 
+pnpm run setup은 backend/init.sh 을 실행합니다.
+
 설치 영상: https://youtu.be/kU7BJRSSR18
 
 By running `pnpm run setup`, automatically pull docker, setup postgres docker container, download datas, insert data into your docker container.
@@ -40,6 +42,17 @@ _도커가 켜져 있는 상태에서_
 ```
 pnpm run setup-dev
 ```
+
+3. output.json이 다운로드 되지 않을 경우
+
+_도커가 켜져 있는 상태에서_
+
+```
+setup-example
+```
+
+example.json을 output.json으로 대신 사용합니다.
+pnpm 커맨드들의 세부 내용은 backend/package.json의 script 부분을 확인하시면 됩니다.
 
 ## How to start frontend
 
