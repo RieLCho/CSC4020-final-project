@@ -9,10 +9,10 @@
 
 ## 구동 전에 설치해야 하는 것
 
-![node.js](https://nodejs.org/en/download/package-manager)
-![pnpm](https://pnpm.io/installation)
-![docker](https://docs.docker.com/engine/install/ubuntu/)
-![nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script) (node.js 20.18 사용 시 스킵 가능)
+1. ![node.js](https://nodejs.org/en/download/package-manager)
+2. ![pnpm](https://pnpm.io/installation)
+3. ![docker](https://docs.docker.com/engine/install/ubuntu/)
+4. ![nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script) (node.js 20.18 사용 시 스킵 가능)
 
 ## How to start backend
 
