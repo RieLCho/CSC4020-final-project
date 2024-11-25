@@ -16,7 +16,7 @@
 
 ## How to start backend
 
-1. output.json이 없는 경우 (git clone 시)
+1. 처음 실행하는 경우
 
 <img width="766" alt="Screenshot 2024-11-24 at 11 28 56 AM" src="https://github.com/user-attachments/assets/63a61d0f-0fdb-40e5-a1cd-97617e4d1b81">
 
@@ -29,13 +29,13 @@ pnpm run setup
 pnpm run start
 ```
 
-pnpm run setup은 backend/init.sh 을 실행합니다.
+pnpm run setup은 backend/init.sh 을 실행합니다. (docker pull postgres, docker run drizzle-postgres, output.json download, drizzle orm sync, data db insert 과정을 진행합니다.)
 
 설치 영상: https://youtu.be/kU7BJRSSR18
 
 By running `pnpm run setup`, automatically pull docker, setup postgres docker container, download datas, insert data into your docker container.
 
-2. output.json이 있는 경우 (eclass에 압축된 파일로 실행 시)
+2. 1번 과정 이후, 필요 시 DB 초기화
 
 _도커가 켜져 있는 상태에서_
 
@@ -43,7 +43,7 @@ _도커가 켜져 있는 상태에서_
 pnpm run setup-dev
 ```
 
-3. output.json이 다운로드 되지 않을 경우
+3. 1번 과정 이후, output.json이 다운로드 되지 않을 경우
 
 _도커가 켜져 있는 상태에서_
 
